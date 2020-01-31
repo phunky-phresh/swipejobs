@@ -1,10 +1,10 @@
-body, html, h1 {
-    margin: 0;
+html, body, h1, h2, h3, h4, p {
+    margin: 0 !important;
     padding: 0;
-    color: white;
+    // color: white;
 }
 * {
     box-sizing: border-box;
 }
-
+@import './components/variables.scss';
 @import './components/global.scss';

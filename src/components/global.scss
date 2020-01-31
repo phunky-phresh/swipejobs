@@ -7,15 +7,15 @@
 .nav {
     display: flex;
     flex-direction: row;
-    justify-content: start;
-    background-color: black;
+    justify-content: flex-start;
+    background-color: $black;
     // top: 0;
-    height: 80px;
+    height: 70px;
     padding: 10px;
     // margin: auto;
 }
 .body {
-    background-color: #eeeeee;
+    background-color: $body;
     height: 100%;
     padding: 15px;
 }
@@ -28,7 +28,29 @@
     padding: inherit;
 }
 .job {
-    background-color: #ffffff;
+    background-color: $white;
     height: 100%;
     border-radius: 5px;
 }
+.block {
+    margin: 10px 0;
+}
+.hero {
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+}
+.highlight {
+    background-color: $teal !important;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    .part2 {
+        color: $white;
+        // padding: inherit;
+        margin-left: auto;
+        // justify-content: flex-end;
+    }
+}
+// .block  {
+//     display: inline-block;
+// }
