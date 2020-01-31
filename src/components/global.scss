@@ -1,0 +1,34 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    background-color: black;
+    // top: 0;
+    height: 80px;
+    padding: 10px;
+    // margin: auto;
+}
+.body {
+    background-color: #eeeeee;
+    height: 100%;
+    padding: 15px;
+}
+.user {
+    margin-left: auto;
+    vertical-align: middle;
+    // padding: inherit;
+}
+.nav h1 {
+    padding: inherit;
+}
+.job {
+    background-color: #ffffff;
+    height: 100%;
+    border-radius: 5px;
+}

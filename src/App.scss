@@ -1,0 +1,10 @@
+body, html, h1 {
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+* {
+    box-sizing: border-box;
+}
+
+@import './components/global.scss';
