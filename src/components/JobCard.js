@@ -48,17 +48,26 @@ function JobCard() {
             </div>
             <div className="block ui segment">
                 <p>Shift Dates</p>
+                <i class="calendar alternate icon"></i>
+                <span className="flex">
                 <h4>{data[0].shifts[0].startDate}</h4>
                 <h4>{data[0].shifts[0].endDate}</h4>
+                </span>
             </div>
             <div className="block ui segment">
                 <p>Location</p>
+                <i class="map marker icon alternate"></i>
+                <span className="flex">
                 <h4>{data[0].company.address.formattedAddress}</h4>
                 <p>{data[0].milesToTravel} miles from your job search location</p>
+                </span>
             </div>
             <div className="block ui segment">
                 <h4>Report to</h4>
+                <span className="flex">
                 <h4>{data[0].company.reportTo.name} {data[0].company.reportTo.phone}</h4>
+
+                </span>
             </div>
             <div className="block actions">
                 <button>No Thanks</button>
