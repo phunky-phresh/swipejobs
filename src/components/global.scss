@@ -35,13 +35,14 @@
 .block {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-    flex-direction: row;
-    display: flex;
+    // flex-direction: row;
+    // display: flex;
     position: relative;
     align-items: center;
+    margin: 0.5rem 0;
     // justify-content: center;
     // padding: 5px 15px;
-    padding: 1rem;
+    padding: 0 1rem;
     // border-bottom: 1px solid black;
     div h4 {
         color: $white;
@@ -66,6 +67,8 @@
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
+    
+    padding: 1rem;
     .part2 {
         margin-left: auto;
         text-align: right;
@@ -76,24 +79,34 @@
 // }
 i, .flex {
     display: inline-block;
-    padding: 10px;
+    // padding: 10px;
 }
 .flex {
     // border-bottom: 1px solid black;
     // width: 100%;
 }
 i.icon {
-    font-size: 2rem;
+    font-size: 1.5rem;
     vertical-align: middle;
 }
 .actions {
     // display: inline-block;
     // margin: auto;
     // width: 100%;
+    padding: 0;
     text-align: center;
     button {
         margin: auto;
-        height: 3rem;
-        width: 9rem;
+        height: 3.5rem;
+        width: 45%;
+        
     }
+}
+
+hr {
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+span > i {
+    height: 4rem;
 }

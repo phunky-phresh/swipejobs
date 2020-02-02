@@ -61,8 +61,9 @@ function JobCard() {
                 <h4>{data[0].shifts[0].startDate}</h4>
                 <h4>{data[0].shifts[0].endDate}</h4>
                 </span>
-                <hr/>
+                
             </div>
+            <hr/>
             <div className="block ">
                 
                 <i className="map marker icon alternate"></i>
@@ -71,15 +72,18 @@ function JobCard() {
                 <h4>{data[0].company.address.formattedAddress}</h4>
                 <p>{data[0].milesToTravel} miles from your job search location</p>
                 </span>
-                <hr/>
+                <i class="chevron right icon"></i>
+                
             </div>
+            <hr/>
             <div className="block ">
                 
                 <span className="flex">
                 <p>Requirements</p>
                 </span>
-                <hr/>
+                
             </div>
+            <hr/>
             <div className="block ">
                 
                 <i className="user circle icon"></i>
@@ -89,12 +93,12 @@ function JobCard() {
                 </span>
                 
             </div>
-            <div className="block ">
+            {/* <div className="block "> */}
             <div className="block actions">
-                <button className="ui grey basic button">No Thanks</button>
-                <button className="ui secondary button">I'll Take It</button>
+                <button className="big ui grey basic button">No Thanks</button>
+                <button className="big ui secondary button">I'll Take It</button>
             </div>
-            </div>
+            {/* </div> */}
         </div>
     )
 }
