@@ -26,17 +26,23 @@ function JobCard() {
       
 //       return <div><img></img></div>
 //   })
+    const time = new Date(data[0].shifts[0].startDate);
+    console.log(typeof time);
+    console.log(time);
+    
     
     return(
-        <div className="job ui segments">
+        <div className="job ">
+            {/* <div className="hero"> */}
+            <img className="hero ui fluid image" src={data[0].jobTitle.imageUrl}></img>
+            {/* </div> */}
             
-                <img className="hero" src={data[0].jobTitle.imageUrl}></img>
-            
-            <div className="block ui segment">
+            <div className="block ">
                 <h3>{data[0].jobTitle.name}</h3>
                 <h4>{data[0].company.name}</h4>
+                
             </div>
-            <div className="block ui segment highlight">
+            <div className="block  highlight">
                 <div className="part">
                     <p>Distance</p>
                     <h4>{data[0].milesToTravel}miles</h4>
@@ -45,33 +51,49 @@ function JobCard() {
                     <p>Hourly Rate</p>
                     <h4>${data[0].wagePerHourInCents/100}</h4>
                 </div>
+                
             </div>
-            <div className="block ui segment">
-                <p>Shift Dates</p>
-                <i class="calendar alternate icon"></i>
+            <div className="block ">
+                
+                <i className="calendar alternate icon"></i>
                 <span className="flex">
+                <p>Shift Dates</p>
                 <h4>{data[0].shifts[0].startDate}</h4>
                 <h4>{data[0].shifts[0].endDate}</h4>
                 </span>
+                <hr/>
             </div>
-            <div className="block ui segment">
-                <p>Location</p>
-                <i class="map marker icon alternate"></i>
+            <div className="block ">
+                
+                <i className="map marker icon alternate"></i>
                 <span className="flex">
+                <p>Location</p>
                 <h4>{data[0].company.address.formattedAddress}</h4>
                 <p>{data[0].milesToTravel} miles from your job search location</p>
                 </span>
+                <hr/>
             </div>
-            <div className="block ui segment">
-                <h4>Report to</h4>
+            <div className="block ">
+                
                 <span className="flex">
-                <h4>{data[0].company.reportTo.name} {data[0].company.reportTo.phone}</h4>
-
+                <p>Requirements</p>
                 </span>
+                <hr/>
             </div>
+            <div className="block ">
+                
+                <i className="user circle icon"></i>
+                <span className="flex">
+                <h4>Report to</h4>
+                <h4>{data[0].company.reportTo.name} {data[0].company.reportTo.phone}</h4>
+                </span>
+                
+            </div>
+            <div className="block ">
             <div className="block actions">
-                <button>No Thanks</button>
-                <button>I'll Take It</button>
+                <button className="ui grey basic button">No Thanks</button>
+                <button className="ui secondary button">I'll Take It</button>
+            </div>
             </div>
         </div>
     )
