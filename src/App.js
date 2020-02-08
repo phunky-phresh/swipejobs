@@ -1,17 +1,60 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState, useEffect} from 'react';
+import { BrowserRouter as Router, Route} from 'react-router-dom';
+import axios from 'axios';
 import './App.scss';
 
+import * as ROUTES from './constants/routes';
+
 import Nav from './components/Nav';
+import JobList from './components/JobList';
+import JobCard from './components/JobCard';
 import Body from './components/Body';
 
 function App() {
+
+  const url = 'https://test.swipejobs.com/api/worker/7f90df6e-b832-44e2-b624-3143d428001f/profile'
+  const [user, setUser] = useState(null);
+  const [job, setJob] = useState(null);
+
+  useEffect(() => {
+    axios.get(url).then((res) => {
+      setUser(res.data)
+    })
+    
+  }, []);
+
+  const handleJobChange = e => {
+    console.log(e.target.getAttribute('value'));
+    setJob(e.target.getAttribute('value'))
+  }
+
+  if (!user) {
+    return ''
+  }
   return (
+    <Router>
     <div className="container">
-        <Nav />
-        <Body />
+      <Nav {...user} />
+      <div className="body">
+        <Route path={ROUTES.JOBLIST}>
+          <JobList 
+           setJob = {handleJobChange}
+            user = {user} 
+          />
+        </Route>
+        <Route path={ROUTES.JOB}>
+          <JobCard 
+          jobId = {job}
+          {...user} 
+          />
+        </Route>
+      </div>
+
+           
+        
 
     </div>
+    </Router>
   );
 }
 
