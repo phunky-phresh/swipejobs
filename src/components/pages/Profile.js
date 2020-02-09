@@ -1,15 +1,11 @@
-import React, {useState, useEffect} from 'react';
-import axios from 'axios';
+import React from 'react';
 
 import {Link} from 'react-router-dom';
-import Title from './Title';
-import Block from './Block';
+import Title from '../reusedComponents/Title';
+import Block from '../reusedComponents/Block';
 
 
 function Profile(props) {
-console.log(props);
-
-
 
     
     return(
@@ -18,7 +14,8 @@ console.log(props);
             <Title
                 title={props.firstName + ' ' +props.lastName}
             />
-            {/* <hr /> */}
+            
+            {/* reusable clock component. passed data as props to then render. helps keep code DRY */}
             <Block
                 icon={'map marker icon alternate'}
                 title={'Address'}
@@ -32,7 +29,8 @@ console.log(props);
                 body={props.phoneNumber}
               />
             <hr />
-            <Title
+            <Block
+                icon={'search icon'}
                 title={'Max Job Distance'}
                 body={`${props.maxJobDistance} miles`}
             />

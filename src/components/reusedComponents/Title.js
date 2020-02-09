@@ -2,6 +2,7 @@ import React from 'react';
 
 function Title(props) {
     
+    //reusable component for title blocks
    
     return(
         <div value={props.value} onClick={props.jobSet} className="title">

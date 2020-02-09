@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react';
 
 import axios from 'axios';
-import Block from './Block';
-import Title from './Title';
+import Block from '../reusedComponents/Block';
+import Title from '../reusedComponents/Title';
 import dateFormat from 'dateformat';
 import {Link} from 'react-router-dom';
 
@@ -10,34 +10,38 @@ import {Link} from 'react-router-dom';
 function JobCard(props) {
   
   const [jobs, setJobs] = useState(null)
-  const [job, setJob] = useState(null)
   const userId = props.workerId
+
   useEffect(() => {
-    
     axios.get(`https://test.swipejobs.com/api/worker/${userId}/matches`).then(res => {
         setJobs(res.data)   
     })
   }, []);
 
+  // function to accept job and post to API
   const acceptJob = () => {
     axios.post(`https://test.swipejobs.com/api/worker/${userId}/job/${props.jobId}/accept`).then(res => {
+      console.log('accept');
       
     })
-  }  
+  } 
+
+    // function to reject job and post to API
   const rejectJob = () => {
     axios.post(`https://test.swipejobs.com/api/worker/${userId}/job/${props.jobId}/reject`).then(res => {
-      
+      console.log('reject');
     })
   }
 
+
+  //Below map function runs through data of matched job. then returns a block of html code to render on the job page.
 if (jobs) {
   var jobDetails = jobs.map( job => {
     if (job.jobId === props.jobId) {
       let req = 'N/A'
       if (job.requirements) {
-        req = (job.requirements).map( r => {
-          console.log(r);
-          return <p>- {r}</p>
+        req = (job.requirements).map( req => {
+        return <li key={req}>{req}</li>
 
         })
       }
@@ -46,11 +50,12 @@ if (jobs) {
       let shift1Start = new Date(job.shifts[0].startDate)
       let shift2End = new Date(job.shifts[0].endDate)
 
+      //used dateFormat to format start and finish times to correct date and time format
       let start = (dateFormat(shift1Start, "UTC:mmm d, ddd h:MM TT")).toUpperCase();
       let end = (dateFormat(shift2End, "UTC:h:MM TT")).toUpperCase();
       
       
-      return <div>
+      return <div key={job.jobId}>
               <div className="hero">
                 <img className="hero ui fluid image" src={job.jobTitle.imageUrl} />
               </div>
@@ -86,7 +91,7 @@ if (jobs) {
               <Block
                 icon={'wrench icon'}
                 title={'Requirements'}
-                body={req}
+                list={req}
               />
               <hr/>
               <Block

@@ -7,11 +7,11 @@ h4 {
     font-family: $title;
     font-weight: $bold;
 }
-.job a {
-    color: black;
+ul {
+    margin: 0;
 }
-a {
-    color: $white;
+.part2 a {
+    color: $white !important;
 }
 .block .chevron {
     margin-left: auto;
@@ -21,11 +21,8 @@ a {
     flex-direction: column;
     height: 100vh;
 }
-
 .nav {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
+    @include justify;
     align-items: center;
     background-color: $black;
     height: 70px;
@@ -34,38 +31,36 @@ a {
     .user {
         margin-left: auto;
         text-align: right;
+        vertical-align: middle;
+        font-family: $title;
+        font-weight: $light;
     }
     .part, .part2 {
         height: min-content;
     }
 }
+.part2 {
+    margin-left: auto;
+    text-align: right;
+}
+.logo {
+    max-width: 40%;
+}
 .body {
-    background-color: $card;
     height: 100%;
     padding: 15px;
+    a {
+        color: black;
+    }
 }
-.user {
-    margin-left: auto;
-    vertical-align: middle;
-    font-family: $title;
-    font-weight: $light;
-}
-
 .job {
     background-color: $white;
     height: 100%;
     border-radius: 5px;
 }
 .block {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    position: relative;
-    align-items: center;
-    margin: 1rem 0;
-    padding: 0 1rem;
+    @include div-layout;
+    @include justify;
     div p {
         color: $white;
         font-size: 20px;
@@ -73,7 +68,6 @@ a {
     span {
         line-height: inherit;
         vertical-align: middle;
-
     }
     i.icon {
         line-height: inherit;
@@ -84,18 +78,11 @@ a {
     border-radius: 5px 5px 0 0;
 }
 .title {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    position: relative;
-    align-items: center;
-    margin: 1rem 0;
-    padding: 0 1rem;
+    @include div-layout;
 }
 .highlight {
     background-color: $teal !important;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
+    @include justify;
     padding: 1rem;
     div p {
         color: $white;
@@ -107,10 +94,7 @@ a {
         font-size: 12px;
     }
 }
-.part2 {
-    margin-left: auto;
-    text-align: right;
-}
+
 
 i, .flex {
     display: inline-block;
@@ -170,11 +154,9 @@ span > i {
     }
     .container {
         height: 100%;
+        
     }
-}
-
-.link {
-    &:hover {
-        color: green;
+    .logo {
+        max-width: 20%;
     }
 }

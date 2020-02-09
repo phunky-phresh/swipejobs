@@ -1,11 +1,16 @@
 
 @import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto:400,500&display=swap');
-@import './components/variables.scss';
-@import './components/global.scss';
+@import './components/sass/mixins.scss';
+@import './components/sass/variables.scss';
+@import './components/sass/global.scss';
 
 html, body, h1, h2, h3, p, p {
     margin: 0 !important;
     padding: 0;
+}
+body {
+    background-color: $card;
+
 }
 * {
     box-sizing: border-box;

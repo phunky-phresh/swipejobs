@@ -1,0 +1,16 @@
+// mixins are to help DRY code. reuse large blocks of css in the global.scss file
+
+@mixin div-layout {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    position: relative;
+    align-items: center;
+    margin: 1rem 0;
+    padding: 0 1rem;
+}
+
+@mixin justify {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
