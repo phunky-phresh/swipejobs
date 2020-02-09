@@ -1,8 +1,10 @@
 import React, {useState, useEffect} from 'react';
 
 import axios from 'axios';
-
 import Block from './Block';
+import dateFormat from 'dateformat';
+import {Link} from 'react-router-dom';
+
 
 function JobCard(props) {
   
@@ -32,36 +34,44 @@ if (jobs) {
     if (job.jobId === props.jobId) {
       let req = 'N/A'
       if (job.requirements) {
-        req = '-' + job.requirements
+        req = (job.requirements).map( r => {
+          console.log(r);
+          return <p>- {r}</p>
+
+        })
       }
+      
+      
+      let shift1Start = new Date(job.shifts[0].startDate)
+      let shift2End = new Date(job.shifts[0].endDate)
+
+      let start = (dateFormat(shift1Start, "UTC:mmm d, ddd h:MM TT")).toUpperCase();
+      let end = (dateFormat(shift2End, "UTC:h:MM TT")).toUpperCase();
+      
       
       return <div>
               <div className="hero">
                 <img className="hero ui fluid image" src={job.jobTitle.imageUrl} />
               </div>
-              {/* <Block
-                title={job.jobTitle.name}
-                body={job.company.name}
-              /> */}
               <div className="jobHead">
                 <h2>{job.jobTitle.name}</h2>
                 <p>{job.company.name}</p>
               </div>
-              <div className="block  highlight">
+              <div className="  highlight">
                 <div className="part">
                     <h4>Distance</h4>
-                    <p>{Number.parseFloat(job.milesToTravel).toFixed(2)}miles</p>
+                    <p>{Number.parseFloat(job.milesToTravel).toFixed(2)} miles</p>
                 </div>
                 <div className="part2">
                     <h4>Hourly Rate</h4>
-                    <p>{job.wagePerHourInCents/100}</p>
+                    <p>${Number.parseFloat(job.wagePerHourInCents/100).toFixed(2)}</p>
                 </div>
               </div>
               <Block
                 icon={'calendar alternate icon'}
-                title={'Shift Date'}
-                body={job.shifts[0].startDate}
-                body2={job.shifts[0].endDate}
+                title={'Shift Dates'}
+                body={start + ' - ' + end}
+                body2={start + ' - ' + end}
                />
               <hr/>
               <Block
@@ -92,15 +102,10 @@ if (jobs) {
     
     return(
         <div className="job ">
-
             {jobDetails}
-
-
-          
-
             <div className=" actions">
-                <button onClick={rejectJob} className="big ui grey basic button">No Thanks</button>
-                <button onClick={acceptJob} className="big ui secondary button">I'll Take It</button>
+                <Link to='/joblist' onClick={rejectJob} className="big ui grey basic button">No Thanks</Link>
+                <Link to='/joblist' onClick={acceptJob} className="big ui secondary button">I'll Take It</Link>
             </div>
             
         </div>

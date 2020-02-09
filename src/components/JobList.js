@@ -4,7 +4,6 @@ import {Link} from 'react-router-dom';
 import Block from './Block';
 
 function JobList(props) {
-console.log(props);
 
 const [user, setUser] = useState(props.user);
 const [jobs, setJobs] = useState(null);

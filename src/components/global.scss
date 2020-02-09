@@ -1,8 +1,11 @@
 p {
     font-size: 12px;
+    font-family: $body;
 }
 h4 {
     margin: 0;
+    font-family: $title;
+    font-weight: $bold;
 }
 a {
     color: black;
@@ -20,12 +23,10 @@ a {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    
+    align-items: center;
     background-color: $black;
-    // top: 0;
     height: 70px;
     padding: 10px;
-    // margin: auto;
     color: white;
     .user {
         margin-left: auto;
@@ -36,18 +37,17 @@ a {
     }
 }
 .body {
-    background-color: $body;
+    background-color: $card;
     height: 100%;
     padding: 15px;
 }
 .user {
     margin-left: auto;
     vertical-align: middle;
-    // padding: inherit;
+    font-family: $title;
+    font-weight: $light;
 }
-.nav h1 {
-    // padding: inherit;
-}
+
 .job {
     background-color: $white;
     height: 100%;
@@ -78,7 +78,6 @@ a {
     }
 }
 .hero {
-    // width: 100%;
     border-radius: 5px 5px 0 0;
 }
 .jobHead {
@@ -94,9 +93,16 @@ a {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    
     padding: 1rem;
-
+    div p {
+        color: $white;
+        font-size: 25px;
+        font-family: $title;
+        font-weight: $bold;
+    }
+    div h4 {
+        font-size: 12px;
+    }
 }
 .part2 {
     margin-left: auto;
@@ -105,7 +111,6 @@ a {
 
 i, .flex {
     display: inline-block;
-    // padding: 10px;
     margin: 0 5px;
 }
 
@@ -120,12 +125,10 @@ i.icon {
     position: relative;
     align-items: center;
     margin: 1rem 1rem;
-    // padding: 0 1rem;
     button {
         margin: auto;
         height: 3.5rem;
         width: 45%;
-        
     }
 }
 
@@ -154,5 +157,15 @@ span > i {
 @media (max-height: 667px) {
     .block {
         margin: 0.5rem 0;
+    }
+}
+@media (min-width: 700px) {
+    .job {
+        max-width: 750px;
+        margin: 0 auto;
+        padding-bottom: 1rem;
+    }
+    .container {
+        height: 100%;
     }
 }
