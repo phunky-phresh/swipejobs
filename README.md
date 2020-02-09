@@ -1,10 +1,15 @@
 ## SwipeJobs Tech Test
 
 try the [Live Demo](https://phunky-phresh.github.io/swipejobs/)
-Run npm install for dependancies
+
+Run npm install for dependancies for local hosting.
 ```bash
 npm install
 ``` 
+
+## Developer Tools
+For optimal performance, open the developer tools in your browser and toggle view to mobile device.
+
 
 ## The test was built using React.js and included the following plugins:
 ### react-router-dom
