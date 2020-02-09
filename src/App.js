@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 
 //imported libraries
-import { BrowserRouter as Router, Route} from 'react-router-dom';
+import { HashRouter as Router, Route} from 'react-router-dom';
 import axios from 'axios';
 import * as ROUTES from './constants/routes';
 

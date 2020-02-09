@@ -1,5 +1,6 @@
 ## SwipeJobs Tech Test
 
+try the [Live Demo](https://phunky-phresh.github.io/swipejobs/)
 Run npm install for dependancies
 ```bash
 npm install

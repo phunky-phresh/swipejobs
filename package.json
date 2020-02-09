@@ -2,6 +2,7 @@
   "name": "swipejobs",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://phunky-phresh.github.io/swipejobs/",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
@@ -9,6 +10,7 @@
     "axios": "^0.19.2",
     "axios-https-proxy-fix": "^0.17.1",
     "dateformat": "^3.0.3",
+    "gh-pages": "^2.2.0",
     "react": "^16.12.0",
     "react-ajax": "^0.1.1",
     "react-dom": "^16.12.0",
@@ -21,9 +23,12 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
+    
   },
   "eslintConfig": {
     "extends": "react-app"
