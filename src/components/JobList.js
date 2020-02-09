@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios'
 import {Link} from 'react-router-dom';
+import Block from './Block';
+
 function JobList(props) {
 console.log(props);
 
@@ -19,12 +21,20 @@ useEffect(() => {
     })
 }, []);
 
-    console.log(jobs);
     if (!jobs) {
         return ''
     }
     const availJobs = jobs.map(job => {
-    return <Link value={job.jobId} to='/job' ><div value={job.jobId} onClick={props.setJob} className="block"><h1 value={job.jobId}>{job.jobTitle.name}</h1></div><hr /></Link>
+    return <Link value={job.jobId} to='/job' >
+                <Block
+                    title={job.jobTitle.name}
+                    body={job.company.name}
+                    value={job.jobId}
+                    jobSet={props.setJob}
+                />
+                {/* <div value={job.jobId} onClick={props.setJob} className="block"><h1 value={job.jobId}>{job.jobTitle.name}</h1></div> */}
+                <hr />
+            </Link>
     })
 
     return(

@@ -24,7 +24,6 @@ function App() {
   }, []);
 
   const handleJobChange = e => {
-    console.log(e.target.getAttribute('value'));
     setJob(e.target.getAttribute('value'))
   }
 
@@ -49,10 +48,6 @@ function App() {
           />
         </Route>
       </div>
-
-           
-        
-
     </div>
     </Router>
   );

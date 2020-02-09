@@ -1,6 +1,9 @@
 import React, {useState, useEffect} from 'react';
 
 import axios from 'axios';
+
+import Block from './Block';
+
 function JobCard(props) {
   
   const [jobs, setJobs] = useState(null)
@@ -15,13 +18,11 @@ function JobCard(props) {
 
   const acceptJob = () => {
     axios.post(`https://test.swipejobs.com/api/worker/${userId}/job/${props.jobId}/accept`).then(res => {
-      console.log(res);
       
     })
   }  
   const rejectJob = () => {
     axios.post(`https://test.swipejobs.com/api/worker/${userId}/job/${props.jobId}/reject`).then(res => {
-      console.log(res);
       
     })
   }
@@ -38,54 +39,50 @@ if (jobs) {
               <div className="hero">
                 <img className="hero ui fluid image" src={job.jobTitle.imageUrl} />
               </div>
-              <div className="block ">
+              {/* <Block
+                title={job.jobTitle.name}
+                body={job.company.name}
+              /> */}
+              <div className="jobHead">
                 <h2>{job.jobTitle.name}</h2>
                 <p>{job.company.name}</p>
               </div>
               <div className="block  highlight">
                 <div className="part">
                     <h4>Distance</h4>
-                    <p>{job.milesToTravel}miles</p>
+                    <p>{Number.parseFloat(job.milesToTravel).toFixed(2)}miles</p>
                 </div>
                 <div className="part2">
                     <h4>Hourly Rate</h4>
                     <p>{job.wagePerHourInCents/100}</p>
                 </div>
               </div>
-              <div className="block ">            
-                <i className="calendar alternate icon"></i>
-                <span className="flex">
-                <h4>Shift Dates</h4>
-                <p>{job.shifts[0].startDate}</p>
-                <p>{job.shifts[0].endDate}</p>
-                </span>
-              </div>
+              <Block
+                icon={'calendar alternate icon'}
+                title={'Shift Date'}
+                body={job.shifts[0].startDate}
+                body2={job.shifts[0].endDate}
+               />
               <hr/>
-              <div className="block ">                
-                <i className="map marker icon alternate"></i>
-                <span className="flex">
-                  <h4>Location</h4>
-                  <p>{job.company.address.formattedAddress}</p>
-                  <p>{job.milesToTravel} miles from your job search location</p>
-                </span>
-                <i className="chevron right icon"></i>                
-              </div>
+              <Block
+                icon={'map marker icon alternate'}
+                title={'Location'}
+                body={job.company.address.formattedAddress}
+                body2={`${Number.parseFloat(job.milesToTravel).toFixed(2)} miles from your job search location`}
+                icon2={'chevron right icon'}
+              />
               <hr/>
-              <div className="block "> 
-                <i class="wrench icon"></i>           
-                <span className="flex">
-                <h4>Requirements</h4>
-                <p>{req}</p>
-                </span>     
-              </div>
+              <Block
+                icon={'wrench icon'}
+                title={'Requirements'}
+                body={req}
+              />
               <hr/>
-              <div className="block ">         
-                <i className="user circle icon"></i>
-                <span className="flex">
-                <h4>Report to</h4>
-                <p>{job.company.reportTo.name} {job.company.reportTo.phone}</p>
-                </span>              
-              </div>
+              <Block
+                icon={'user circle icon'}
+                title={'Report to'}
+                body={`${job.company.reportTo.name} ${job.company.reportTo.phone}`}
+              />
             </div>
     }
   })
@@ -99,14 +96,13 @@ if (jobs) {
             {jobDetails}
 
 
+          
 
-
-            {/* <div className="block "> */}
-            <div className="block actions">
+            <div className=" actions">
                 <button onClick={rejectJob} className="big ui grey basic button">No Thanks</button>
                 <button onClick={acceptJob} className="big ui secondary button">I'll Take It</button>
             </div>
-            {/* </div> */}
+            
         </div>
     )
 }
