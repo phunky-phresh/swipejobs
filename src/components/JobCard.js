@@ -29,7 +29,7 @@ function JobCard(props) {
 if (jobs) {
   var jobDetails = jobs.map( job => {
     if (job.jobId === props.jobId) {
-      let req = 'nothing'
+      let req = 'N/A'
       if (job.requirements) {
         req = '-' + job.requirements
       }
@@ -39,41 +39,42 @@ if (jobs) {
                 <img className="hero ui fluid image" src={job.jobTitle.imageUrl} />
               </div>
               <div className="block ">
-                <h3>{job.jobTitle.name}</h3>
-                <h4>{job.company.name}</h4>
+                <h2>{job.jobTitle.name}</h2>
+                <p>{job.company.name}</p>
               </div>
               <div className="block  highlight">
                 <div className="part">
-                    <p>Distance</p>
-                    <h4>{job.milesToTravel}miles</h4>
+                    <h4>Distance</h4>
+                    <p>{job.milesToTravel}miles</p>
                 </div>
                 <div className="part2">
-                    <p>Hourly Rate</p>
-                    <h4>{job.wagePerHourInCents/100}</h4>
+                    <h4>Hourly Rate</h4>
+                    <p>{job.wagePerHourInCents/100}</p>
                 </div>
               </div>
               <div className="block ">            
                 <i className="calendar alternate icon"></i>
                 <span className="flex">
-                <p>Shift Dates</p>
-                <h4>{job.shifts[0].startDate}</h4>
-                <h4>{job.shifts[0].endDate}</h4>
+                <h4>Shift Dates</h4>
+                <p>{job.shifts[0].startDate}</p>
+                <p>{job.shifts[0].endDate}</p>
                 </span>
               </div>
               <hr/>
               <div className="block ">                
                 <i className="map marker icon alternate"></i>
                 <span className="flex">
-                  <p>Location</p>
-                  <h4>{job.company.address.formattedAddress}</h4>
+                  <h4>Location</h4>
+                  <p>{job.company.address.formattedAddress}</p>
                   <p>{job.milesToTravel} miles from your job search location</p>
                 </span>
                 <i className="chevron right icon"></i>                
               </div>
               <hr/>
-              <div className="block ">            
+              <div className="block "> 
+                <i class="wrench icon"></i>           
                 <span className="flex">
-                <p>Requirements</p>
+                <h4>Requirements</h4>
                 <p>{req}</p>
                 </span>     
               </div>
@@ -81,8 +82,8 @@ if (jobs) {
               <div className="block ">         
                 <i className="user circle icon"></i>
                 <span className="flex">
-                <p>Report to</p>
-                <h4>{job.company.reportTo.name} {job.company.reportTo.phone}</h4>
+                <h4>Report to</h4>
+                <p>{job.company.reportTo.name} {job.company.reportTo.phone}</p>
                 </span>              
               </div>
             </div>

@@ -6,8 +6,12 @@ console.log(props);
     const userName = props.firstName + ' ' + props.lastName
     return(
         <div className="nav">
-            <h1>logo</h1>
-        <h1 className="user">{userName}</h1>
+            <div className="part">
+            <h2>logo</h2>
+            </div>
+            <div className="part2">
+            <h2 className="user">{userName}</h2>
+            </div>
         </div>
     )
 }
