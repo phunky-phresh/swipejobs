@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 
 import axios from 'axios';
 import Block from './Block';
+import Title from './Title';
 import dateFormat from 'dateformat';
 import {Link} from 'react-router-dom';
 
@@ -53,10 +54,10 @@ if (jobs) {
               <div className="hero">
                 <img className="hero ui fluid image" src={job.jobTitle.imageUrl} />
               </div>
-              <div className="jobHead">
-                <h2>{job.jobTitle.name}</h2>
-                <p>{job.company.name}</p>
-              </div>
+              <Title
+                title={job.jobTitle.name}
+                body={job.company.name}
+              />
               <div className="  highlight">
                 <div className="part">
                     <h4>Distance</h4>

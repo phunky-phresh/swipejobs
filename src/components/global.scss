@@ -7,8 +7,11 @@ h4 {
     font-family: $title;
     font-weight: $bold;
 }
-a {
+.job a {
     color: black;
+}
+a {
+    color: $white;
 }
 .block .chevron {
     margin-left: auto;
@@ -80,7 +83,7 @@ a {
 .hero {
     border-radius: 5px 5px 0 0;
 }
-.jobHead {
+.title {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     position: relative;
@@ -167,5 +170,11 @@ span > i {
     }
     .container {
         height: 100%;
+    }
+}
+
+.link {
+    &:hover {
+        color: green;
     }
 }

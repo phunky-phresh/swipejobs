@@ -8,7 +8,7 @@ import * as ROUTES from './constants/routes';
 import Nav from './components/Nav';
 import JobList from './components/JobList';
 import JobCard from './components/JobCard';
-import Body from './components/Body';
+import Profile from './components/Profile';
 
 function App() {
 
@@ -44,6 +44,11 @@ function App() {
         <Route path={ROUTES.JOB}>
           <JobCard 
           jobId = {job}
+          {...user} 
+          />
+        </Route>  
+        <Route exact path={ROUTES.PROFILE}>
+          <Profile
           {...user} 
           />
         </Route>
