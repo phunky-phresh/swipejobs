@@ -15,13 +15,18 @@ function JobCard(props) {
   useEffect(() => {
     axios.get(`https://test.swipejobs.com/api/worker/${userId}/matches`).then(res => {
         setJobs(res.data)   
+    }).catch( err => {
+      console.log(err);
     })
   }, []);
 
   // function to accept job and post to API
   const acceptJob = () => {
     axios.post(`https://test.swipejobs.com/api/worker/${userId}/job/${props.jobId}/accept`).then(res => {
-      console.log('accept');
+      console.log('accept', res);
+      
+    }).catch( err => {
+      console.log(err);
       
     })
   } 
@@ -29,7 +34,10 @@ function JobCard(props) {
     // function to reject job and post to API
   const rejectJob = () => {
     axios.post(`https://test.swipejobs.com/api/worker/${userId}/job/${props.jobId}/reject`).then(res => {
-      console.log('reject');
+      console.log('reject', res);
+    }).catch( err => {
+      console.log(err);
+      
     })
   }
 
@@ -57,7 +65,7 @@ if (jobs) {
       
       return <div key={job.jobId}>
               <div className="hero">
-                <img className="hero ui fluid image" src={job.jobTitle.imageUrl} />
+                <img alt={job.jobTitle.name} className="hero ui fluid image" src={job.jobTitle.imageUrl} />
               </div>
               <Title
                 title={job.jobTitle.name}
